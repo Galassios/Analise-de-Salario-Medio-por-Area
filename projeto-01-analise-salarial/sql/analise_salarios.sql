@@ -1,4 +1,3 @@
-sql
 WITH tabela_limpa AS (
     SELECT DISTINCT *
     FROM dados_pessoas
