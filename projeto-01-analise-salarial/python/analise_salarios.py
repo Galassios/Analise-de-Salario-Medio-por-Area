@@ -11,7 +11,7 @@ resultado = (
         quant=('nome', 'count')
     )
     .round(2)
-    .sort_values(by=['media', 'quant'], ascending=False)
+    .sort_values(by=['media', 'quant'], ascending=[False, False])
 )
 
 print(resultado)
