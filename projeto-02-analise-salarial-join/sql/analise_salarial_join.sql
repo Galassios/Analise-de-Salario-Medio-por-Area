@@ -1,1 +1,10 @@
-import pandas as pd df = pd.read_csv('dados/dados_pessoas.csv') resultado = ( df .drop_duplicates() .groupby('area') .agg( media=('salario', 'mean'), quant=('nome', 'count') ) .round(2) .sort_values(by=['media', 'quant'], ascending=[False, False]) ) print(resultado)
+SELECT 
+    a.nome_area,
+    ROUND(AVG(p.salario), 2) AS media_salarial,
+    COUNT(p.nome) AS quant_pessoas
+FROM pessoas p
+LEFT JOIN areas a
+    ON p.area_id = a.id_area
+GROUP BY a.nome_area
+HAVING AVG(p.salario) > 8000
+ORDER BY media_salarial;
